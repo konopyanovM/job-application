@@ -1,0 +1,10 @@
+.auth {
+    min-height: 100vh;
+
+    color: var(--white-100);
+    background-color: var(--background);
+}
+
+.auth__content {
+    background-color: var(--black-100);
+}

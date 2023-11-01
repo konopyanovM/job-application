@@ -7,10 +7,13 @@ import { AuthPage } from './views/AuthPage/AuthPage';
 function App() {
   return (
     <div className="App">
-      <h1>Hello</h1>
       <Routes>
-        <Route path="/" element={<HomePage />}></Route>
-        <Route path="/auth" element={<AuthPage />}></Route>
+        <Route path="" element={<HomePage />}></Route>
+        <Route path="auth" element={<AuthPage />}>
+          <Route path=""></Route>
+          <Route path="login"></Route>
+          <Route path="sign-up"></Route>
+        </Route>
       </Routes>
     </div>
   );
