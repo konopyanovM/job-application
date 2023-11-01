@@ -1,0 +1,23 @@
+input {
+    width: 100%;
+
+    padding: 15px 0;
+
+    font-size: 16px;
+
+    color: var(--white-100);
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid #a2a2a2;
+
+    transition: border-bottom-color ease 0.15s;
+}
+
+input::placeholder {
+    color: var(--black-20);
+}
+
+input:focus-visible {
+    outline: none;
+    border-bottom: 1px solid var(--white-100);
+}
