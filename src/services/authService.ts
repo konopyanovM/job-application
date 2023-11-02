@@ -1,4 +1,4 @@
-import { SignUpData, User } from '../types';
+import { User } from '../types';
 import toast from 'react-hot-toast';
 import { NavigateFunction } from 'react-router-dom';
 

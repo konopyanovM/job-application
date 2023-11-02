@@ -1,8 +1,9 @@
 import './Header.css';
 import { authService } from '../../services/authService';
 import { useNavigate } from 'react-router-dom';
+import { ReactElement } from 'react';
 
-export const Header = () => {
+export const Header = (): ReactElement => {
   const navigate = useNavigate();
   const logout = () => {
     authService.logout(navigate);

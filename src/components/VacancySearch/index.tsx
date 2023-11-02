@@ -1,7 +1,7 @@
 import './VacancySearch.css';
-import { useState } from 'react';
+import { ReactElement, useState } from 'react';
 
-export const VacancySearch = ({ setSearchTerm: setSearchTermParent }) => {
+export const VacancySearch = ({ setSearchTerm: setSearchTermParent }): ReactElement => {
   const [searchTerm, setSearchTerm] = useState('');
   const search = () => {
     setSearchTermParent(searchTerm);

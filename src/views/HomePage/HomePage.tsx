@@ -2,9 +2,9 @@ import './HomePage.css';
 import { VacancyList } from '../../components/VacancyList';
 import { Header } from '../../layouts/Header';
 import { VacancySearch } from '../../components/VacancySearch';
-import { useState } from 'react';
+import { ReactElement, useState } from 'react';
 
-export const HomePage = () => {
+export const HomePage = (): ReactElement => {
   const [searchTerm, setSearchTerm] = useState<string>();
 
   return (

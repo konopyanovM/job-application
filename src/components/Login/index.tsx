@@ -3,9 +3,9 @@ import { SubmitHandler, useForm } from 'react-hook-form';
 import { authService } from '../../services/authService';
 import { User } from '../../types';
 import { getValidationMessage } from '../../utils/getValidationMessage';
-import { useState } from 'react';
+import { ReactElement, useState } from 'react';
 
-export const Login = () => {
+export const Login = (): ReactElement => {
   const {
     register,
     handleSubmit,

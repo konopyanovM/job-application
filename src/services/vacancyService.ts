@@ -1,6 +1,6 @@
 import Axios, { AxiosResponse } from 'axios';
 import { Vacancy } from '../types';
-import { RapidApiResponse } from '../types/rapidapi.interfaces';
+import { RapidApiResponse } from '../types';
 
 const axios = Axios.create({
   baseURL: 'https://jsearch.p.rapidapi.com',

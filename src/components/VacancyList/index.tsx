@@ -1,9 +1,9 @@
 import { vacancyService } from '../../services/vacancyService';
-import { useEffect, useState } from 'react';
+import { ReactElement, useEffect, useState } from 'react';
 import './VacancyList.css';
 import { Vacancy } from '../../types';
 
-export const VacancyList = ({ searchTerm }) => {
+export const VacancyList = ({ searchTerm }): ReactElement => {
   const [vacancies, setVacancies] = useState<Vacancy[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
   useEffect(() => {
@@ -12,8 +12,6 @@ export const VacancyList = ({ searchTerm }) => {
       vacancyService.get(searchTerm).then(res => {
         setLoading(false);
         setVacancies(res.data.data);
-
-        console.log(vacancies);
       });
     }
   }, [searchTerm]);
