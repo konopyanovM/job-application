@@ -1,12 +1,24 @@
 .vacancy-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
 
+.vacancy-list__placeholder {
+    height: 400px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    color: var(--white-100);
 }
 
 .vacancy-list__item {
     padding: 40px;
 
     display: flex;
-    gap: 160px;
+    gap: 100px;
 
     border-radius: 12px;
     color: var(--white-100);
@@ -14,18 +26,32 @@
 }
 
 .vacancy-list__item-logo {
+    flex-basis: 25%;
     display: flex;
     gap: 12px;
 }
 
 .vacancy-list__item-logo img {
-    width: 56px;
-    height: 56px;
+    width: 60px;
+    height: 60px;
+
+    padding: 20px;
+
+    border-radius: 16px;
+
+    background-color: white;
+
+    object-fit: contain;
+}
+
+.vacancy-list__item-logo p {
+    margin: auto 0;
 }
 
 .vacancy-list__item-content {
     max-height: 110px;
 
+    flex-basis: 75%;
     display: flex;
     flex-direction: column;
     gap: 20px;

@@ -1,27 +1,22 @@
-import Axios from 'axios';
+import Axios, { AxiosResponse } from 'axios';
+import { Vacancy } from '../types';
+import { RapidApiResponse } from '../types/rapidapi.interfaces';
 
 const axios = Axios.create({
+  baseURL: 'https://jsearch.p.rapidapi.com',
   headers: {
     'X-RapidAPI-Key': 'e8b2feffb1msh3a99061305fd9f8p1d2e4ajsnc48a89be3b6b',
     'X-RapidAPI-Host': 'jsearch.p.rapidapi.com',
   },
 });
 export const vacancyService = {
-  vacancies: [''],
-  get: function () {
-    const options = {
-      method: 'GET',
-      url: 'https://jsearch.p.rapidapi.com/search',
+  get: function (query: string): Promise<AxiosResponse<RapidApiResponse<Vacancy[]>>> {
+    return axios.get<RapidApiResponse<Vacancy[]>>('/search', {
       params: {
-        query: 'Python developer in Texas, USA',
+        query: query,
         page: '1',
         num_pages: '1',
       },
-    };
-    return axios.request(options);
-    // return axios.get('https://jsearch.p.rapidapi.com/search');
-  },
-  test: function () {
-    this.vacancies.push('sdfsadf');
+    });
   },
 };

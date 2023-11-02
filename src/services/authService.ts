@@ -3,11 +3,10 @@ import toast from 'react-hot-toast';
 import { NavigateFunction } from 'react-router-dom';
 
 const USERS_KEY = 'users';
-const USER_KEY = 'user';
 const AUTH_KEY = 'isAuthorized';
 
-export const authService: any = {
-  isAuthorized: function () {
+export const authService = {
+  isAuthorized: function (): boolean {
     return Boolean(localStorage.getItem(AUTH_KEY));
   },
   getUsers: function (): User[] {
@@ -17,7 +16,6 @@ export const authService: any = {
     if (usersRaw !== null) users = JSON.parse(usersRaw);
     return users;
   },
-  getUser: function () {},
   register: function (data: User, navigate: NavigateFunction): void {
     const users = this.getUsers();
 
@@ -35,19 +33,24 @@ export const authService: any = {
       toast.error('This username is already taken');
     }
   },
-  login: function (data: User, navigate: NavigateFunction) {
+  login: function (data: User, navigate: NavigateFunction): void {
     const userData = this._userExist(data);
-
     if (userData && userData.password === data.password) {
       localStorage.setItem(AUTH_KEY, 'true');
       navigate('/');
-    } else if (userData.password !== data.password) {
+    } else if (userData?.username === undefined) {
+      toast.error('Fill username field please');
+    } else if (userData?.password !== data.password) {
       toast.error('Incorrect password');
     } else {
       toast.error('User not found');
     }
   },
-  _userExist: function (data: User) {
+  logout: function (navigate) {
+    localStorage.setItem(AUTH_KEY, 'false');
+    navigate('/auth');
+  },
+  _userExist: function (data: User): User | undefined {
     return this.getUsers().find(user => {
       return user.username === data.username;
     });

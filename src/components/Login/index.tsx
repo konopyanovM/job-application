@@ -12,7 +12,7 @@ export const Login = () => {
     formState: { errors },
   } = useForm<User>();
   const navigate = useNavigate();
-  const [passwordHidden, setPasswordHidden] = useState(true);
+  const [passwordHidden, setPasswordHidden] = useState<boolean>(true);
   const onSubmit: SubmitHandler<User> = data => {
     authService.login(data, navigate);
   };

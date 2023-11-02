@@ -13,8 +13,8 @@ export const SignUp = () => {
     formState: { errors },
   } = useForm<SignUpData>();
   const navigate = useNavigate();
-  const [passwordHidden, setPasswordHidden] = useState(true);
-  const [rePasswordHidden, setRePasswordHidden] = useState(true);
+  const [passwordHidden, setPasswordHidden] = useState<boolean>(true);
+  const [rePasswordHidden, setRePasswordHidden] = useState<boolean>(true);
 
   const onSubmit: SubmitHandler<SignUpData> = data => {
     const signUpData = {

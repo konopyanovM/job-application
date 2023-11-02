@@ -1,4 +1,7 @@
 .home {
-    height: 100vh;
+    min-height: 100vh;
+
+    font-family: 'Manrope', sans-serif;
+    
     background-color: var(--background);
 }

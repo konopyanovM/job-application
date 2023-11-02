@@ -49,6 +49,10 @@ input:focus-visible + .input-group__suffix {
     cursor: pointer;
 }
 
+.input-group__suffix:focus-visible {
+    outline: none;
+}
+
 .input-group__suffix img {
     width: 80%;
     object-fit: contain;

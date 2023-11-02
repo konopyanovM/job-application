@@ -14,3 +14,14 @@
 .vacancy-search__content .input-group {
     flex-grow: 1;
 }
+
+.vacancy-search__content .input-group .input-group__suffix img {
+    opacity: 0.75;
+
+    transition: opacity 0.15s ease;
+}
+
+.vacancy-search__content .input-group .input-group__suffix:hover img {
+    opacity: 1;
+}
+

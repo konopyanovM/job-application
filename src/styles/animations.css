@@ -1,0 +1,19 @@
+.--animation-jiggle {
+    animation-name: jiggle;
+    animation-duration: 1.25s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease;
+}
+
+/* Note: better to move to another folder, like utils */
+@keyframes jiggle {
+    0% {
+        opacity: 0.3;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0.3;
+    }
+}
