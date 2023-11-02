@@ -33,6 +33,7 @@ input:focus-visible + .input-group__suffix {
 }
 
 .input-group__suffix {
+    max-width: 40px;
     min-width: 40px;
 
     display: none;
@@ -49,6 +50,8 @@ input:focus-visible + .input-group__suffix {
 }
 
 .input-group__suffix img {
+    width: 80%;
+    object-fit: contain;
     opacity: 0.5;
 }
 

@@ -1,0 +1,42 @@
+.vacancy-list {
+
+}
+
+.vacancy-list__item {
+    padding: 40px;
+
+    display: flex;
+    gap: 160px;
+
+    border-radius: 12px;
+    color: var(--white-100);
+    background-color: var(--black-100);
+}
+
+.vacancy-list__item-logo {
+    display: flex;
+    gap: 12px;
+}
+
+.vacancy-list__item-logo img {
+    width: 56px;
+    height: 56px;
+}
+
+.vacancy-list__item-content {
+    max-height: 110px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.vacancy-list__item-content p {
+    display: -webkit-box;
+
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+
+    color: var(--black-20);
+}

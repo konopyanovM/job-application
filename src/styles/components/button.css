@@ -18,3 +18,15 @@
 .app-button:hover {
     opacity: 0.85;
 }
+
+.app-button.app-button--outline {
+    color: var(--white-100);
+    background-color: transparent;
+    border: 1px solid var(--white-100);
+}
+
+/* Sizes */
+.app-button.app-button--sm {
+    padding: 8px;
+    border-radius: 6px;
+}
