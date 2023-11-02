@@ -1,4 +1,4 @@
-import { createBrowserRouter } from 'react-router-dom';
+import { createBrowserRouter, Navigate } from 'react-router-dom';
 import { HomePage } from '../views/HomePage/HomePage';
 import { AuthPage } from '../views/AuthPage/AuthPage';
 import { Login } from '../components/Login';
@@ -13,6 +13,10 @@ export const rootRouting = createBrowserRouter([
     path: 'auth',
     element: <AuthPage />,
     children: [
+      {
+        path: '',
+        element: <Navigate to="/auth/login" />,
+      },
       {
         path: 'login',
         element: <Login></Login>,

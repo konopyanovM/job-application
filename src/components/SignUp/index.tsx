@@ -1,9 +1,9 @@
 import { Link, useNavigate } from 'react-router-dom';
 import { SubmitHandler, useForm } from 'react-hook-form';
-import { SignUpData, User } from '../../types';
+import { SignUpData } from '../../types';
 import { authService } from '../../services/authService';
 import { getValidationMessage } from '../../utils/getValidationMessage';
-import { useEffect } from 'react';
+import { useState } from 'react';
 
 export const SignUp = () => {
   const {
@@ -13,6 +13,8 @@ export const SignUp = () => {
     formState: { errors },
   } = useForm<SignUpData>();
   const navigate = useNavigate();
+  const [passwordHidden, setPasswordHidden] = useState(true);
+  const [rePasswordHidden, setRePasswordHidden] = useState(true);
 
   const onSubmit: SubmitHandler<SignUpData> = data => {
     const signUpData = {
@@ -39,18 +41,31 @@ export const SignUp = () => {
             {...register('username', { required: true, maxLength: 20, pattern: /^[A-Za-z]+$/i })}
           />
         </label>
-        <label htmlFor="password">
+        <label htmlFor="password" className="input-group">
           <input
             id="password"
-            type="password"
+            type={passwordHidden ? 'password' : 'text'}
             placeholder="Enter your password"
             {...register('password', { required: true, minLength: 8 })}
           />
+          <button
+            type="button"
+            className="input-group__suffix"
+            onClick={() => {
+              setPasswordHidden(prevState => !prevState);
+            }}
+          >
+            <img
+              src="/assets/images/icons/tuiIconShowLarge.svg"
+              alt="eye open"
+              className={passwordHidden ? '--password-hidden' : ''}
+            />
+          </button>
         </label>
-        <label htmlFor="rePassword">
+        <label htmlFor="rePassword" className="input-group">
           <input
             id="rePassword"
-            type="password"
+            type={rePasswordHidden ? 'password' : 'text'}
             placeholder="Repeat your password"
             {...register('rePassword', {
               required: true,
@@ -62,8 +77,21 @@ export const SignUp = () => {
               },
             })}
           />
+          <button
+            type="button"
+            className="input-group__suffix"
+            onClick={() => {
+              setRePasswordHidden(prevState => !prevState);
+            }}
+          >
+            <img
+              src="/assets/images/icons/tuiIconShowLarge.svg"
+              alt="eye open"
+              className={rePasswordHidden ? '--password-hidden' : ''}
+            />
+          </button>
         </label>
-        <button>Sign Up</button>
+        <button className="app-button">Sign Up</button>
       </form>
       <small className="caption">
         Already have an account? <Link to="/auth/login">Log in</Link>

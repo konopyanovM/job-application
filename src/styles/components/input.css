@@ -21,3 +21,41 @@ input:focus-visible {
     outline: none;
     border-bottom: 1px solid var(--white-100);
 }
+
+input:focus-visible + .input-group__suffix {
+    border-bottom: 1px solid var(--white-100);
+}
+
+/* Input group */
+
+.input-group {
+    display: flex;
+}
+
+.input-group__suffix {
+    min-width: 40px;
+
+    display: none;
+    justify-content: center;
+    align-items: center;
+
+    border: none;
+    border-bottom: 1px solid #a2a2a2;
+
+    background-color: transparent;
+
+    transition: border-bottom-color ease 0.15s;
+    cursor: pointer;
+}
+
+.input-group__suffix img {
+    opacity: 0.5;
+}
+
+.input-group__suffix img.--password-hidden {
+    opacity: 1;
+}
+
+.input-group > input + .input-group__suffix {
+    display: flex;
+}
